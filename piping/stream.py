@@ -11,8 +11,9 @@ class Stream(object):
   def next(self):
     return self.iterable.next()
 
-  def pipe(self, processor):
-    return Stream(processor(self.iterable))
+  def pipe(self, *processors):
+    processor = reduce(lambda i, p: p(i), processors, self.iterable)
+    return Stream(processor)
 
   def map(self, fn):
     return self.pipe(Map(fn))
