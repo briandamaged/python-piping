@@ -1,3 +1,9 @@
 
 # Python stuffs
 *.pyc
+
+# Build Stuffs
+build/
+dist/
+piping.egg-info/
+
