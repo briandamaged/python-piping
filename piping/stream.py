@@ -1,5 +1,5 @@
 
-from processors import Map, Tap, Select, Reject
+from .processors import Map, Tap, Select, Reject
 
 class Stream(object):
   def __init__(self, iterable):
