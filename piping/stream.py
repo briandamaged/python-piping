@@ -1,7 +1,7 @@
 
-from .processors import Map, Tap, Select, Reject
+from .enumerable import Enumerable
 
-class Stream(object):
+class Stream(Enumerable):
   def __init__(self, iterable):
     self.iterable = iter(iterable)
 
@@ -14,18 +14,6 @@ class Stream(object):
   def pipe(self, *processors):
     processor = reduce(lambda i, p: p(i), processors, self.iterable)
     return Stream(processor)
-
-  def map(self, fn):
-    return self.pipe(Map(fn))
-
-  def tap(self, fn):
-    return self.pipe(Tap(fn))
-
-  def select(self, fn):
-    return self.pipe(Select(fn))
-
-  def reject(self, fn):
-    return self.pipe(Reject(fn))
 
   def each(self, func):
     for thing in self.iterable:

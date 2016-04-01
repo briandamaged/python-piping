@@ -1,7 +1,8 @@
 
+from .enumerable import Enumerable
 from .stream import Stream
 
-class Defer(object):
+class Defer(Enumerable):
   def pipe(self, *processors):
     return reduce(lambda d, p: DeferMore(d, p), processors, self)
 
