@@ -1,3 +1,8 @@
+"""
+This example demonstrates how to use the 'piping' library to
+apply tags to news headlines.  Scroll to the very bottom of
+this example to see the library in action.
+"""
 
 from __future__ import print_function
 
