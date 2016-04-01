@@ -1,5 +1,5 @@
 
-from .processors import Map, Tap, Select, Reject, Branch
+from .processors import Map, Tap, Select, Reject, Detour
 
 class Enumerable(object):
   """
@@ -20,4 +20,4 @@ class Enumerable(object):
     return self.pipe(Reject(fn))
 
   def detour(self, condition, processor):
-    return self.pipe(Branch().CASE(condition, processor))
+    return self.pipe(Detour(condition, processor))

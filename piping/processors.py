@@ -88,3 +88,10 @@ class Branch(object):
   def ELSE(self, processor):
     return Branch(self.rules, processor)
 
+
+def Detour(condition, processor):
+  """
+  This is shorthand for creating a Branch w/ a single condition
+  """
+  return Branch([BranchRule(condition, processor)])
+
